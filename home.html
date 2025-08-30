@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Edi Miletić - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-blue: #0a0e27;
+            --tech-blue: #1e3a8a;
+            --electric-blue: #3b82f6;
+            --neon-cyan: #06b6d4;
+            --bright-cyan: #0891b2;
+            --dark-slate: #1e293b;
+            --steel-gray: #475569;
+            --light-gray: #e2e8f0;
+            --snow-white: #f8fafc;
+            --tech-accent: #10b981;
+            --orange-accent: #f59e0b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--light-gray);
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--tech-blue) 50%, var(--dark-slate) 100%);
+            overflow-x: hidden;
+        }
+
+        /* Animated background elements */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 20s infinite linear;
+        }
+
+        .floating-element:nth-child(1) { top: 20%; left: 10%; animation-delay: -5s; }
+        .floating-element:nth-child(2) { top: 60%; left: 80%; animation-delay: -10s; }
+        .floating-element:nth-child(3) { top: 40%; left: 60%; animation-delay: -15s; }
+
+        @keyframes float {
+            from { transform: translateY(100vh) rotate(0deg); }
+            to { transform: translateY(-100px) rotate(360deg); }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--neon-cyan);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--snow-white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 5px var(--neon-cyan);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--neon-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Main sections */
+        section {
+            min-height: 100vh;
+            padding: 5rem 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #about, #projects, #skills, #contact {
+            min-height: 70vh;
+        }
+
+        /* Hero section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            background: rgba(248, 248, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--neon-cyan), var(--electric-blue), var(--bright-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: var(--snow-white);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, var(--electric-blue), var(--neon-cyan));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: rgba(248, 248, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h3 {
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: var(--snow-white);
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: var(--electric-blue);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: var(--neon-cyan);
+            color: var(--dark-blue);
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        /* Modal styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--tech-blue) 50%, var(--dark-slate) 100%);
+            border: 1px solid var(--tech-blue);
+            border-radius: 20px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            padding: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            color: var(--neon-cyan);
+            margin: 0;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--snow-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--neon-cyan);
+        }
+
+        .modal-content {
+            padding: 2rem;
+        }
+
+        .modal-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--snow-white);
+            margin-bottom: 2rem;
+        }
+
+        /* Carousel styles */
+        .carousel-container {
+            position: relative;
+            margin: 2rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-wrapper {
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            font-size: 1.2rem;
+            color: var(--snow-white);
+            text-align: center;
+            min-height: 300px;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(6, 182, 212, 0.8);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .carousel-nav:hover {
+            background: var(--neon-cyan);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev {
+            left: 1rem;
+        }
+
+        .carousel-next {
+            right: 1rem;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-indicator.active {
+            background: var(--neon-cyan);
+            transform: scale(1.2);
+        }
+
+        .modal-tech-stack {
+            margin: 2rem 0;
+        }
+
+        .modal-tech-stack h4 {
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .github-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, var(--electric-blue), var(--neon-cyan));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .github-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+            background: linear-gradient(45deg, var(--neon-cyan), var(--orange-accent));
+        }
+
+        /* Section headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--snow-white);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--electric-blue);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Skills section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .skill-item {
+            background: rgba(248, 250, 252, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--neon-cyan);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: rgba(248, 250, 252, 0.1);
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(6, 182, 212, 0.2);
+        }
+
+        .skill-item h4 {
+            color: var(--neon-cyan);
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-item p {
+            color: var(--snow-white);
+            font-size: 0.9rem;
+        }
+
+        /* Contact section */
+        .contact {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(45deg, var(--tech-blue), var(--electric-blue));
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .contact-link:hover {
+            background: linear-gradient(45deg, var(--neon-cyan), var(--orange-accent));
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(6, 182, 212, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .modal {
+                width: 95%;
+                max-height: 95vh;
+            }
+
+            .modal-header {
+                padding: 1.5rem;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .carousel-slide {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hide scrollbar but keep functionality */
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: var(--dark-blue);
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background: var(--neon-cyan);
+            border-radius: 4px;
+        }
+
+        /* Custom scrollbar for modal */
+        .modal::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .modal::-webkit-scrollbar-track {
+            background: var(--dark-blue);
+        }
+
+        .modal::-webkit-scrollbar-thumb {
+            background: var(--neon-cyan);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background -->
+    <div class="bg-animation">
+        <div class="floating-element">🌲</div>
+        <div class="floating-element">⚡</div>
+        <div class="floating-element">🏔️</div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Edi Miletić</div>
+            <ul class="nav-links">
+                <li><a href="#home">Početna</a></li>
+                <li><a href="#about">O meni</a></li>
+                <li><a href="#projects">Projekti</a></li>
+                <li><a href="#skills">Vještine</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Edi Miletić</h1>
+            <p class="subtitle">Web Developer • Košarkaški sudac</p>
+            <a href="#projects" class="cta-button">Istražite moj rad</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <h2>O meni</h2>
+        </div>
+        
+        <div class="card">
+            <p>
+                Ja sam web developer sa željom kreiranja digitalnih iskustava. Sveučilišni sam prvostupnik informatike i uskoro ću postati Magistar informatike, što mi je dalo snažne analitičke temelje za rješavanje složenih programskih problema. Kada ne kodiram, onda sudim košarkaške utakmice, trčim ili planiram sljedeću planinarsku avanturu.
+            </p>
+            <p>
+                Moja ljubav prema planinarenju i trčanju naučila me izdržljivosti i ustrajnosti, dok mi košarkaško suđenje pomaže u brzom donošenju odluka i radu pod pritiskom – vještine koje se prenose na web development.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header">
+            <h2>Istaknuti projekti</h2>
+        </div>
+
+        <div class="card-grid">
+            <div class="card" data-project="trailtracker">
+                <h3>🌲 TrailTracker Pro</h3>
+                <p>Sveobuhvatna aplikacija za planinarstvo izgrađena s Angular-om i Firebase-om. Uključuje integraciju vremenske prognoze u realnom vremenu, GPS praćenje i dijeljenje staza u zajednici.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Angular</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Firebase</span>
+                    <span class="tech-tag">PWA</span>
+                </div>
+            </div>
+
+            <div class="card" data-project="ecommerce">
+                <h3>⚡ EcoCommerce platforma</h3>
+                <p>Održiva e-commerce platforma koja promovira eko-proizvode. Izgrađena s Angular frontendom i Node.js backendom, uključuje praćenje ugljičnog otiska.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Angular</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">Stripe</span>
+                </div>
+            </div>
+
+            <div class="card" data-project="weather">
+                <h3>🏔️ Mountain Weather API</h3>
+                <p>RESTful API koji pruža specijalizirane vremenske podatke za alpiniste i planinare. Agregira podatke iz više izvora s prognozama specifičnim za visinu.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Express</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-header">
+            <h2>Tehničke vještine</h2>
+            <p>Alati i tehnologije koje koristim za oživljavanje ideja</p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-item">
+                <h4>Frontend Development</h4>
+                <p>Angular, React, TypeScript, HTML5, CSS3, SASS, Responzivni dizajn</p>
+            </div>
+
+            <div class="skill-item">
+                <h4>Backend Development</h4>
+                <p>Node.js, Express, RESTful API-ji</p>
+            </div>
+
+            <div class="skill-item">
+                <h4>Baze podataka i Cloud</h4>
+                <p>MongoDB, Firebase</p>
+            </div>
+
+            <div class="skill-item">
+                <h4>Alati i tijek rada</h4>
+                <p>Git, GitHub Actions</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact">
+            <div class="section-header">
+                <h2>Povežimo se</h2>
+            </div>
+
+            <div class="contact-links">
+                <a href="mailto:edi.miletic1@gmail.com" class="contact-link">
+                    <i class="fa-solid fa-envelope"></i> Pošaljite mi email
+                </a>
+                <a href="https://www.linkedin.com/in/edi-miletic-35382a271/" class="contact-link">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/edimiletic" class="contact-link">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <button class="modal-close" id="modalClose">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-content">
+                <p class="modal-description" id="modalDescription"></p>
+                
+                <div class="carousel-container">
+                    <div class="carousel-wrapper">
+                        <div class="carousel-track" id="carouselTrack"></div>
+                    </div>
+                    <button class="carousel-nav carousel-prev" id="carouselPrev">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-nav carousel-next" id="carouselNext">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-indicators" id="carouselIndicators"></div>
+                </div>
+
+                <div class="modal-tech-stack">
+                    <h4>Tehnologije:</h4>
+                    <div class="tech-stack" id="modalTechStack"></div>
+                </div>
+
+                <a href="#" class="github-button" id="githubButton" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                    Pogledaj na GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Project data
+        var projects = {
+            trailtracker: {
+                title: "UHKS Sistem upravaljanja košarkaškim suđenjem",
+                description: "UKSPGZ je  web aplikacija koju sam razvio za digitalizaciju upravljanja košarkaškim sucima. Aplikacija omogućava potpuno digitalno upravljanje od nominacije sudaca na utakmice do detaljne evaluacije njihovih performansi po različitim kategorijama poput tehnike, timskog rada i kontrole utakmice. Sustav uključuje sveobuhvatan modul za statistike i analizu performansi, upravljanje putnim troškovima s mogućnošću podnošenja i odobravanja zahtjeva za refundaciju, integrirani sustav online ispita za certificiranje sudaca, te planiranje odsustva i dostupnosti. Aplikacija podržava tri glavne korisničke uloge - administratore za potpuno upravljanje sustavom, suce za pristup utakmicama i ispitima, te delegate za evaluaciju performansi. Cijeli sustav je dizajniran s naglaskom na intuitivno korisničko sučelje, responsive dizajn optimiziran za sve uređaje, te uspješno digitalizira složen proces upravljanja košarkaškim suđenjem, značajno poboljšavajući efikasnost i transparentnost rada Unije košarkaških sudaca Primorsko-gorske županije.",
+                images: [
+                    "🗺️ Interaktivna karta s GPS praćenjem",
+                    "🌤️ Vremenska prognoza u realnom vremenu",
+                    "📱 Progressive Web App funkcionalnost",
+                    "👥 Dijeljenje staza s zajednicom",
+                    "📊 Statistike i analiza planinarskih aktivnosti"
+                ],
+                techStack: ["Angular", "TypeScript", "Mongo DB", "Node.js", "Express", "Mongoose", "JWT", "Vercel", "Railway"],
+                github: ""
+            },
+            ecommerce: {
+                title: "WhatToDo",
+                description: "WhatToDo je sveobuhvatna aplikacija za upravljanje zadacima koja omogućuje korisnicima efikasnu organizaciju i praćenje njihovih aktivnosti. Aplikacija podržava kategorizaciju zadataka u prilagođene kategorije za bolju organizaciju rada.Svaki zadatak prolazi kroz jasno definirane statuse - 'Open' (otvoren), 'In Progress' (u tijeku) i 'Done' (završen), što omogućuje transparentno praćenje napretka. Sustav uključuje funkcionalnost postavljanja rokova za sve zadatke, osiguravajući pravovremeno izvršavanje obaveza. Implemtentirana je Speech to Text funkcionalnost koja korisnicima omogućuje brzo unošenje sadržaja u tekstna polja putem glasovnih naredbi, čime se značajno povećava brzina rada. Za timski rad, WhatToDo nudi mogućnost stvaranja grupnih projekata gdje se zadaci mogu dodjeljivati različitim članovima tima.Aplikacija je dostupna na engleskom i hrvatskom jeziku. WhatToDo predstavlja kompletan alat za produktivnost koji kombinira jednostavnost korištenja s naprednim funkcionalnostima za upravljanje zadacima. Ova aplikacija je izrađena u timu sa kolegom s fakulteta u sklopu kolegija 'Human Computer Interaction'.",
+                images: [
+                    {src:""},
+                ],
+                techStack: [".NET", "MySQL", "C#"],
+                github: ""
+            },
+            weather: {
+                title: "BeerShop",
+                description: "",
+                images: [
+                    {src:"https://drive.google.com/file/d/1wMGPvqtyhNXAczvRfCA_rpQ06bgR3lcs/view?usp=drive_link"},
+                ],
+                techStack: ["Next.js", "TypeScript", "Mongo DB", "JWT"],
+                github: ""
+            }
+        };
+
+        // Modal functionality
+        var modal = document.getElementById('projectModal');
+        var modalTitle = document.getElementById('modalTitle');
+        var modalDescription = document.getElementById('modalDescription');
+        var modalTechStack = document.getElementById('modalTechStack');
+        var githubButton = document.getElementById('githubButton');
+        var modalClose = document.getElementById('modalClose');
+        var carouselTrack = document.getElementById('carouselTrack');
+        var carouselIndicators = document.getElementById('carouselIndicators');
+        var carouselPrev = document.getElementById('carouselPrev');
+        var carouselNext = document.getElementById('carouselNext');
+
+        var currentSlide = 0;
+        var totalSlides = 0;
+
+        // Open modal function
+        function openModal(projectKey) {
+            var project = projects[projectKey];
+            if (!project) return;
+
+            // Set modal content
+            modalTitle.textContent = project.title;
+            modalDescription.textContent = project.description;
+            githubButton.href = project.github;
+
+            // Set tech stack
+            modalTechStack.innerHTML = '';
+            project.techStack.forEach(function(tech) {
+                var tag = document.createElement('span');
+                tag.className = 'tech-tag';
+                tag.textContent = tech;
+                modalTechStack.appendChild(tag);
+            });
+
+            // Set up carousel
+            setupCarousel(project.images);
+
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal function
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            currentSlide = 0;
+        }
+
+        // Setup carousel
+        function setupCarousel(images) {
+            totalSlides = images.length;
+            currentSlide = 0;
+
+            // Clear existing content
+            carouselTrack.innerHTML = '';
+            carouselIndicators.innerHTML = '';
+
+            // Create slides
+            images.forEach(function(image, index) {
+                var slide = document.createElement('div');
+                slide.className = 'carousel-slide';
+                slide.textContent = image;
+                carouselTrack.appendChild(slide);
+
+                // Create indicator
+                var indicator = document.createElement('div');
+                indicator.className = 'carousel-indicator';
+                if (index === 0) indicator.classList.add('active');
+                indicator.addEventListener('click', function() { 
+                    goToSlide(index); 
+                });
+                carouselIndicators.appendChild(indicator);
+            });
+
+            updateCarousel();
+        }
+
+        // Update carousel position
+        function updateCarousel() {
+            var translateX = -currentSlide * 100;
+            carouselTrack.style.transform = 'translateX(' + translateX + '%)';
+
+            // Update indicators
+            var indicators = document.querySelectorAll('.carousel-indicator');
+            indicators.forEach(function(indicator, index) {
+                if (index === currentSlide) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        // Go to specific slide
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateCarousel();
+        }
+
+        // Next slide
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        // Previous slide
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        // Event listeners
+        var projectCards = document.querySelectorAll('.card[data-project]');
+        projectCards.forEach(function(card) {
+            card.addEventListener('click', function() {
+                var projectKey = card.dataset.project;
+                openModal(projectKey);
+            });
+        });
+
+        modalClose.addEventListener('click', closeModal);
+        carouselNext.addEventListener('click', nextSlide);
+        carouselPrev.addEventListener('click', prevSlide);
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Auto-advance carousel
+        var carouselInterval;
+        
+        function startCarouselAutoplay() {
+            carouselInterval = setInterval(function() {
+                if (modal.classList.contains('active')) {
+                    nextSlide();
+                }
+            }, 5000);
+        }
+
+        function stopCarouselAutoplay() {
+            clearInterval(carouselInterval);
+        }
+
+        // Override functions to handle autoplay
+        var originalOpenModal = openModal;
+        openModal = function(projectKey) {
+            originalOpenModal(projectKey);
+            startCarouselAutoplay();
+        };
+
+        var originalCloseModal = closeModal;
+        closeModal = function() {
+            originalCloseModal();
+            stopCarouselAutoplay();
+        };
+
+        // Pause autoplay on hover
+        modal.addEventListener('mouseenter', stopCarouselAutoplay);
+        modal.addEventListener('mouseleave', function() {
+            if (modal.classList.contains('active')) {
+                startCarouselAutoplay();
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        var navLinks = document.querySelectorAll('a[href^="#"]');
+        navLinks.forEach(function(anchor) {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background opacity on scroll
+        window.addEventListener('scroll', function() {
+            var header = document.querySelector('header');
+            var scrolled = window.pageYOffset;
+            var opacity = Math.min(0.95, 0.7 + (scrolled / 1000));
+            header.style.background = 'rgba(10, 14, 39, ' + opacity + ')';
+        });
+
+        // Add animation delay to cards
+        var observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = Math.random() * 0.5 + 's';
+                    entry.target.style.animation = 'slideUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        var animatedElements = document.querySelectorAll('.card, .skill-item');
+        animatedElements.forEach(function(card) {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            observer.observe(card);
+        });
+
+        // Add interactive hover effects
+        var allCards = document.querySelectorAll('.card');
+        allCards.forEach(function(card) {
+            card.addEventListener('mouseenter', function() {
+                card.style.borderColor = 'var(--neon-cyan)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                card.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+            });
+        });
+    </script>
+</body>
+</html>
