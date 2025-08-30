@@ -232,7 +232,6 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            cursor: pointer;
         }
 
         .card::before {
@@ -263,7 +262,7 @@
 
         .card p {
             color: var(--snow-white);
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
         }
 
         .tech-stack {
@@ -279,12 +278,21 @@
             border-radius: 20px;
             font-size: 0.8rem;
             transition: all 0.3s ease;
+                margin-top: 0.5rem;
         }
 
         .tech-tag:hover {
             background: var(--neon-cyan);
             color: var(--dark-blue);
             box-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .link{
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .link:hover{
+            color: #a8abac;
         }
 
         /* Modal styles */
@@ -730,6 +738,8 @@
                 <h3>UHKS</h3>
                 <p>UHKS je web aplikacija koju sam razvio za digitalizaciju upravljanja košarkaškim sucima i ostalim
                     košarkaškim djelatnicima.</p>
+                                    <a class="link">Prikaži više</a>
+
                 <div class="tech-stack">
                     <span class="tech-tag">Angular</span>
                     <span class="tech-tag">TypeScript</span>
@@ -741,6 +751,8 @@
                 <h3>WhatToDo</h3>
                 <p>WhatToDo je sveobuhvatna aplikacija za upravljanje zadacima koja omogućuje korisnicima efikasnu
                     organizaciju i praćenje njihovih aktivnosti.</p>
+                                    <a class="link">Prikaži više</a>
+
                 <div class="tech-stack">
                     <span class="tech-tag">.NET</span>
                     <span class="tech-tag">C#</span>
@@ -752,6 +764,8 @@
                 <h3>BeerShop</h3>
                 <p>BeerShop je specijalizirana online trgovina koja se fokusira na prodaju širokog asortimana piva i
                     srodnih proizvoda.</p>
+                                    <a class="link">Prikaži više</a>
+
                 <div class="tech-stack">
                     <span class="tech-tag">Next.js</span>
                     <span class="tech-tag">React</span>
