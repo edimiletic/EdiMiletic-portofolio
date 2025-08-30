@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Edi Miletić - Portfolio</title>
     <style>
         * {
@@ -51,13 +52,32 @@
             animation: float 20s infinite linear;
         }
 
-        .floating-element:nth-child(1) { top: 20%; left: 10%; animation-delay: -5s; }
-        .floating-element:nth-child(2) { top: 60%; left: 80%; animation-delay: -10s; }
-        .floating-element:nth-child(3) { top: 40%; left: 60%; animation-delay: -15s; }
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: -5s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            animation-delay: -10s;
+        }
+
+        .floating-element:nth-child(3) {
+            top: 40%;
+            left: 60%;
+            animation-delay: -15s;
+        }
 
         @keyframes float {
-            from { transform: translateY(100vh) rotate(0deg); }
-            to { transform: translateY(-100px) rotate(360deg); }
+            from {
+                transform: translateY(100vh) rotate(0deg);
+            }
+
+            to {
+                transform: translateY(-100px) rotate(360deg);
+            }
         }
 
         /* Header */
@@ -128,7 +148,10 @@
             margin: 0 auto;
         }
 
-        #about, #projects, #skills, #contact {
+        #about,
+        #projects,
+        #skills,
+        #contact {
             min-height: 70vh;
         }
 
@@ -150,8 +173,15 @@
         }
 
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero h1 {
@@ -370,15 +400,16 @@
             text-align: center;
             min-height: 300px;
         }
+
         .carousel-slide img {
-    max-width: 100%;
-    max-height: 600px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
+            max-width: 100%;
+            max-height: 600px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
 
         .carousel-nav {
             position: absolute;
@@ -555,15 +586,15 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
+
             .nav-links {
                 gap: 1rem;
             }
-            
+
             .card-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .contact-links {
                 flex-direction: column;
                 align-items: center;
@@ -631,6 +662,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Animated background -->
     <div class="bg-animation">
@@ -667,13 +699,22 @@
         <div class="section-header">
             <h2>O meni</h2>
         </div>
-        
+
         <div class="card">
             <p>
-                Ja sam web developer sa željom kreiranja digitalnih iskustava. Sveučilišni sam prvostupnik informatike i uskoro ću postati Magistar informatike, što mi je dalo analitičke temelje za rješavanje programskih problema. U slobodno vrijeme sudim košarkaške utakmice, trčim ili planiram sljedeću planinarsku avanturu.
+                Rođen 2001., mladi sam web developer sa željom kreiranja digitalnih iskustava. Završio sam preddiplomski
+                studij informatike 2023. godine na Fakultetu informatike i digitalnih tehnologija Sveučilišta u Rijeci,
+                gdje trenutno završavam diplomski studij. </p>
+            <p>
+                Svoje znanje proširio sam kroz Erasmus programe u Estoniji (TalTech) i Španjolskoj (Universidad de
+                Castilla - La Mancha), što mi je omogućilo rad u internacionalnim okruženjima i upoznavanje s različitim
+                pristupima razvoju tehnologija. Praktično iskustvo stekao sam u tvrtkama Juice d.o.o. i Sarda d.o.o.
             </p>
             <p>
-                Moja ljubav prema planinarenju i trčanju naučila me izdržljivosti i ustrajnosti, dok mi košarkaško suđenje pomaže u brzom donošenju odluka i radu pod pritiskom – vještine koje se prenose na web development.
+                Van profesionalnog okvira, dugi niz godina aktivan sam kao košarkaški sudac, što me naučilo brzom
+                donošenju odluka i radu pod pritiskom, dok me trčanje i planinarenje uče samodisciplini. Cilj mi je
+                graditi karijeru u području digitalnog kreiranja, spajajući tehničku stručnost s kreativnim pristupom u
+                stvaranju korisnih rješenja za svakodnevne izazove.
             </p>
         </div>
     </section>
@@ -687,7 +728,8 @@
         <div class="card-grid">
             <div class="card" data-project="trailtracker">
                 <h3>UHKS</h3>
-                <p>UHKS je  web aplikacija koju sam razvio za digitalizaciju upravljanja košarkaškim sucima i ostalim košarkaškim djelatnicima.</p>
+                <p>UHKS je web aplikacija koju sam razvio za digitalizaciju upravljanja košarkaškim sucima i ostalim
+                    košarkaškim djelatnicima.</p>
                 <div class="tech-stack">
                     <span class="tech-tag">Angular</span>
                     <span class="tech-tag">TypeScript</span>
@@ -697,7 +739,8 @@
 
             <div class="card" data-project="ecommerce">
                 <h3>WhatToDo</h3>
-                <p>WhatToDo je sveobuhvatna aplikacija za upravljanje zadacima koja omogućuje korisnicima efikasnu organizaciju i praćenje njihovih aktivnosti.</p>
+                <p>WhatToDo je sveobuhvatna aplikacija za upravljanje zadacima koja omogućuje korisnicima efikasnu
+                    organizaciju i praćenje njihovih aktivnosti.</p>
                 <div class="tech-stack">
                     <span class="tech-tag">.NET</span>
                     <span class="tech-tag">C#</span>
@@ -707,7 +750,8 @@
 
             <div class="card" data-project="weather">
                 <h3>BeerShop</h3>
-                <p>BeerShop je specijalizirana online trgovina koja se fokusira na prodaju širokog asortimana piva i srodnih proizvoda.</p>
+                <p>BeerShop je specijalizirana online trgovina koja se fokusira na prodaju širokog asortimana piva i
+                    srodnih proizvoda.</p>
                 <div class="tech-stack">
                     <span class="tech-tag">Next.js</span>
                     <span class="tech-tag">React</span>
@@ -779,7 +823,7 @@
             </div>
             <div class="modal-content">
                 <p class="modal-description" id="modalDescription"></p>
-                
+
                 <div class="carousel-container">
                     <div class="carousel-wrapper">
                         <div class="carousel-track" id="carouselTrack"></div>
@@ -813,27 +857,27 @@
                 title: "UHKS Sistem upravaljanja košarkaškim suđenjem",
                 description: "UKSPGZ je  web aplikacija za digitalizaciju upravljanja košarkaškim sucima. Aplikacija omogućava  digitalno upravljanje od nominacije sudaca na utakmice do detaljne evaluacije njihovih performansi po kategorijama poput tehnike, timskog rada i kontrole utakmice. Sustav uključuje sveobuhvatan modul za statistike i analizu performansi, upravljanje putnim troškovima, integrirani sustav online ispita, te planiranje odsustva i dostupnosti. Aplikacija podržava tri glavne korisničke uloge - administratore, suce, te delegate za evaluaciju performansi. Cijeli sustav je dizajniran s naglaskom na intuitivno korisničko sučelje, responsive dizajn. Sustav uspješno digitalizira složen proces upravljanja košarkaškim suđenjem. ",
                 images: [
-                    {src:"assets/UHKS/1.png"},
-                    {src:"assets/UHKS/2.png"},
-                    {src:"assets/UHKS/3.png"},
-                    {src:"assets/UHKS/4.png"},
-                    {src:"assets/UHKS/5.png"},
-                    {src:"assets/UHKS/6.png"},
-                    {src:"assets/UHKS/7.png"}
+                    { src: "assets/UHKS/1.png" },
+                    { src: "assets/UHKS/2.png" },
+                    { src: "assets/UHKS/3.png" },
+                    { src: "assets/UHKS/4.png" },
+                    { src: "assets/UHKS/5.png" },
+                    { src: "assets/UHKS/6.png" },
+                    { src: "assets/UHKS/7.png" }
                 ],
                 techStack: ["Angular", "TypeScript", "Mongo DB", "Node.js", "Express", "Mongoose", "JWT", "Vercel", "Railway"],
                 github: ""
             },
             ecommerce: {
                 title: "WhatToDo",
-                description: "WhatToDo je sveobuhvatna aplikacija za upravljanje zadacima koja omogućuje korisnicima efikasnu organizaciju. Aplikacija podržava kategorizaciju zadataka u  kategorije. Svaki zadatak prolazi kroz statuse npr, 'In Progress' i 'Done'. Sustav uključuje funkcionalnosti postavljanja rokova i Speech to Text  koja korisnicima omogućuje unošenje sadržaja putem glasovnih naredbi. WhatToDo nudi mogućnost stvaranja grupnih projekata gdje se zadaci mogu dodjeljivati članovima tima.Aplikacija je dostupna na engleskom i hrvatskom jeziku. WhatToDo predstavlja kompletan alat za produktivnost. Ova aplikacija je izrađena u timu sa kolegom s fakulteta u sklopu kolegija 'Human Computer Interaction'.",
+                description: "WhatToDo je sveobuhvatna aplikacija za upravljanje zadacima koja omogućuje korisnicima efikasnu organizaciju. Aplikacija podržava kategorizaciju zadataka u  kategorije. Svaki zadatak prolazi kroz statuse, npr. 'In Progress' i 'Done'. Sustav uključuje funkcionalnosti postavljanja rokova i Speech to Text  koja korisnicima omogućuje unošenje sadržaja putem glasovnih naredbi. WhatToDo nudi mogućnost stvaranja grupnih projekata gdje se zadaci mogu dodjeljivati članovima tima. Aplikacija je dostupna na engleskom i hrvatskom jeziku. WhatToDo predstavlja kompletan alat za produktivnost. Ova aplikacija je izrađena u timu sa kolegom s fakulteta u sklopu kolegija 'Human Computer Interaction'.",
                 images: [
-                    {src:"assets/WhatToDo/1.png"},
-                    {src:"assets/WhatToDo/2.png"},
-                    {src:"assets/WhatToDo/3.png"},
-                    {src:"assets/WhatToDo/4.png"},
-                    {src:"assets/WhatToDo/5.png"},
-                    {src:"assets/WhatToDo/6.png"}
+                    { src: "assets/WhatToDo/1.png" },
+                    { src: "assets/WhatToDo/2.png" },
+                    { src: "assets/WhatToDo/3.png" },
+                    { src: "assets/WhatToDo/4.png" },
+                    { src: "assets/WhatToDo/5.png" },
+                    { src: "assets/WhatToDo/6.png" }
                 ],
                 techStack: [".NET", "MySQL", "C#"],
                 github: ""
@@ -842,10 +886,10 @@
                 title: "BeerShop",
                 description: "Aplikacija implementira standardne e-commerce funkcionalnosti poput košarice, procesa naručivanja, upravljanja korisničkim računima i praćenja narudžbi. Sustav uključuje i osnovne sigurnosne mjere kao što je verifikacija dobi korisnika u skladu s propisima o prodaji alkohola.",
                 images: [
-                    {src:"assets/BeerShop/1.png"},
-                    {src:"assets/BeerShop/2.png"},
-                    {src:"assets/BeerShop/3.png"},
-                    {src:"assets/BeerShop/4.png"}
+                    { src: "assets/BeerShop/1.png" },
+                    { src: "assets/BeerShop/2.png" },
+                    { src: "assets/BeerShop/3.png" },
+                    { src: "assets/BeerShop/4.png" }
 
                 ],
                 techStack: ["Next.js", "TypeScript", "Mongo DB", "JWT"],
@@ -880,7 +924,7 @@
 
             // Set tech stack
             modalTechStack.innerHTML = '';
-            project.techStack.forEach(function(tech) {
+            project.techStack.forEach(function (tech) {
                 var tag = document.createElement('span');
                 tag.className = 'tech-tag';
                 tag.textContent = tech;
@@ -904,74 +948,74 @@
 
         // Setup carousel
         function setupCarousel(images) {
-    console.log('Setting up carousel with images:', images); // Debug log
-    totalSlides = images.length;
-    currentSlide = 0;
+            console.log('Setting up carousel with images:', images); // Debug log
+            totalSlides = images.length;
+            currentSlide = 0;
 
-    // Clear existing content
-    carouselTrack.innerHTML = '';
-    carouselIndicators.innerHTML = '';
+            // Clear existing content
+            carouselTrack.innerHTML = '';
+            carouselIndicators.innerHTML = '';
 
-    // Create slides
-    images.forEach(function(imageData, index) {
-        console.log('Processing image:', imageData); // Debug log
-        
-        var slide = document.createElement('div');
-        slide.className = 'carousel-slide';
-        
-        // Create image element
-        var img = document.createElement('img');
-        img.src = imageData.src;
-        img.alt = imageData.caption;
-        img.loading = 'lazy';
-        
-        console.log('Image src set to:', img.src); // Debug log
-        
-        // Create caption element
-        var caption = document.createElement('div');
-        caption.className = 'slide-caption';
-        caption.textContent = imageData.caption;
-        
-        // Add success handler for images
-        img.onload = function() {
-            console.log('Successfully loaded image:', imageData.src);
-        };
-        
-        // Add error handling for images
-        img.onerror = function() {
-            console.error('Failed to load image:', imageData.src);
-            // Fallback to text display if image fails to load
-            slide.innerHTML = '';
-            var fallbackDiv = document.createElement('div');
-            fallbackDiv.textContent = imageData.caption;
-            fallbackDiv.style.fontSize = '1.2rem';
-            fallbackDiv.style.textAlign = 'center';
-            fallbackDiv.style.color = 'var(--snow-white)';
-            fallbackDiv.style.padding = '2rem';
-            fallbackDiv.style.display = 'flex';
-            fallbackDiv.style.alignItems = 'center';
-            fallbackDiv.style.justifyContent = 'center';
-            fallbackDiv.style.height = '100%';
-            slide.appendChild(fallbackDiv);
-        };
-        
-        slide.appendChild(img);
-        slide.appendChild(caption);
-        carouselTrack.appendChild(slide);
+            // Create slides
+            images.forEach(function (imageData, index) {
+                console.log('Processing image:', imageData); // Debug log
 
-        // Create indicator
-        var indicator = document.createElement('div');
-        indicator.className = 'carousel-indicator';
-        if (index === 0) indicator.classList.add('active');
-        indicator.addEventListener('click', function() { 
-            goToSlide(index); 
-        });
-        carouselIndicators.appendChild(indicator);
-    });
+                var slide = document.createElement('div');
+                slide.className = 'carousel-slide';
 
-    updateCarousel();
-    console.log('Carousel setup complete. Total slides:', totalSlides);
-}
+                // Create image element
+                var img = document.createElement('img');
+                img.src = imageData.src;
+                img.alt = imageData.caption;
+                img.loading = 'lazy';
+
+                console.log('Image src set to:', img.src); // Debug log
+
+                // Create caption element
+                var caption = document.createElement('div');
+                caption.className = 'slide-caption';
+                caption.textContent = imageData.caption;
+
+                // Add success handler for images
+                img.onload = function () {
+                    console.log('Successfully loaded image:', imageData.src);
+                };
+
+                // Add error handling for images
+                img.onerror = function () {
+                    console.error('Failed to load image:', imageData.src);
+                    // Fallback to text display if image fails to load
+                    slide.innerHTML = '';
+                    var fallbackDiv = document.createElement('div');
+                    fallbackDiv.textContent = imageData.caption;
+                    fallbackDiv.style.fontSize = '1.2rem';
+                    fallbackDiv.style.textAlign = 'center';
+                    fallbackDiv.style.color = 'var(--snow-white)';
+                    fallbackDiv.style.padding = '2rem';
+                    fallbackDiv.style.display = 'flex';
+                    fallbackDiv.style.alignItems = 'center';
+                    fallbackDiv.style.justifyContent = 'center';
+                    fallbackDiv.style.height = '100%';
+                    slide.appendChild(fallbackDiv);
+                };
+
+                slide.appendChild(img);
+                slide.appendChild(caption);
+                carouselTrack.appendChild(slide);
+
+                // Create indicator
+                var indicator = document.createElement('div');
+                indicator.className = 'carousel-indicator';
+                if (index === 0) indicator.classList.add('active');
+                indicator.addEventListener('click', function () {
+                    goToSlide(index);
+                });
+                carouselIndicators.appendChild(indicator);
+            });
+
+            updateCarousel();
+            console.log('Carousel setup complete. Total slides:', totalSlides);
+        }
 
         // Update carousel position
         function updateCarousel() {
@@ -980,7 +1024,7 @@
 
             // Update indicators
             var indicators = document.querySelectorAll('.carousel-indicator');
-            indicators.forEach(function(indicator, index) {
+            indicators.forEach(function (indicator, index) {
                 if (index === currentSlide) {
                     indicator.classList.add('active');
                 } else {
@@ -1009,8 +1053,8 @@
 
         // Event listeners
         var projectCards = document.querySelectorAll('.card[data-project]');
-        projectCards.forEach(function(card) {
-            card.addEventListener('click', function() {
+        projectCards.forEach(function (card) {
+            card.addEventListener('click', function () {
                 var projectKey = card.dataset.project;
                 openModal(projectKey);
             });
@@ -1021,14 +1065,14 @@
         carouselPrev.addEventListener('click', prevSlide);
 
         // Close modal when clicking outside
-        modal.addEventListener('click', function(e) {
+        modal.addEventListener('click', function (e) {
             if (e.target === modal) {
                 closeModal();
             }
         });
 
         // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && modal.classList.contains('active')) {
                 closeModal();
             }
@@ -1036,9 +1080,9 @@
 
         // Auto-advance carousel
         var carouselInterval;
-        
+
         function startCarouselAutoplay() {
-            carouselInterval = setInterval(function() {
+            carouselInterval = setInterval(function () {
                 if (modal.classList.contains('active')) {
                     nextSlide();
                 }
@@ -1051,20 +1095,20 @@
 
         // Override functions to handle autoplay
         var originalOpenModal = openModal;
-        openModal = function(projectKey) {
+        openModal = function (projectKey) {
             originalOpenModal(projectKey);
             startCarouselAutoplay();
         };
 
         var originalCloseModal = closeModal;
-        closeModal = function() {
+        closeModal = function () {
             originalCloseModal();
             stopCarouselAutoplay();
         };
 
         // Pause autoplay on hover
         modal.addEventListener('mouseenter', stopCarouselAutoplay);
-        modal.addEventListener('mouseleave', function() {
+        modal.addEventListener('mouseleave', function () {
             if (modal.classList.contains('active')) {
                 startCarouselAutoplay();
             }
@@ -1072,7 +1116,7 @@
 
         // Smooth scrolling for navigation links
         var navLinks = document.querySelectorAll('a[href^="#"]');
-        navLinks.forEach(function(anchor) {
+        navLinks.forEach(function (anchor) {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 var target = document.querySelector(this.getAttribute('href'));
@@ -1086,7 +1130,7 @@
         });
 
         // Header background opacity on scroll
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             var header = document.querySelector('header');
             var scrolled = window.pageYOffset;
             var opacity = Math.min(0.95, 0.7 + (scrolled / 1000));
@@ -1099,8 +1143,8 @@
             rootMargin: '0px 0px -50px 0px'
         };
 
-        var observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
                     entry.target.style.animationDelay = Math.random() * 0.5 + 's';
                     entry.target.style.animation = 'slideUp 0.8s ease-out forwards';
@@ -1109,7 +1153,7 @@
         }, observerOptions);
 
         var animatedElements = document.querySelectorAll('.card, .skill-item');
-        animatedElements.forEach(function(card) {
+        animatedElements.forEach(function (card) {
             card.style.opacity = '0';
             card.style.transform = 'translateY(30px)';
             observer.observe(card);
@@ -1117,15 +1161,16 @@
 
         // Add interactive hover effects
         var allCards = document.querySelectorAll('.card');
-        allCards.forEach(function(card) {
-            card.addEventListener('mouseenter', function() {
+        allCards.forEach(function (card) {
+            card.addEventListener('mouseenter', function () {
                 card.style.borderColor = 'var(--neon-cyan)';
             });
-            
-            card.addEventListener('mouseleave', function() {
+
+            card.addEventListener('mouseleave', function () {
                 card.style.borderColor = 'rgba(255, 255, 255, 0.2)';
             });
         });
     </script>
 </body>
+
 </html>
