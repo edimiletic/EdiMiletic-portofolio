@@ -84,7 +84,7 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            color: var(--neon-cyan);
+            color: white;
         }
 
         .nav-links {
@@ -284,7 +284,7 @@
             background: linear-gradient(135deg, var(--dark-blue) 0%, var(--tech-blue) 50%, var(--dark-slate) 100%);
             border: 1px solid var(--tech-blue);
             border-radius: 20px;
-            max-width: 900px;
+            /* max-width: 900px; */
             width: 90%;
             max-height: 90vh;
             overflow-y: auto;
@@ -307,7 +307,7 @@
 
         .modal-title {
             font-size: 2rem;
-            color: var(--neon-cyan);
+            color: white;
             margin: 0;
         }
 
@@ -370,6 +370,15 @@
             text-align: center;
             min-height: 300px;
         }
+        .carousel-slide img {
+    max-width: 100%;
+    max-height: 600px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
 
         .carousel-nav {
             position: absolute;
@@ -407,7 +416,7 @@
             display: flex;
             justify-content: center;
             gap: 0.5rem;
-            margin-top: 1rem;
+            margin: 1rem 0;
         }
 
         .carousel-indicator {
@@ -429,13 +438,13 @@
         }
 
         .modal-tech-stack h4 {
-            color: var(--neon-cyan);
+            color: white;
             margin-bottom: 1rem;
             font-size: 1.2rem;
         }
 
         .github-button {
-            display: inline-flex;
+            display: none;
             align-items: center;
             gap: 0.5rem;
             padding: 1rem 2rem;
@@ -661,7 +670,7 @@
         
         <div class="card">
             <p>
-                Ja sam web developer sa željom kreiranja digitalnih iskustava. Sveučilišni sam prvostupnik informatike i uskoro ću postati Magistar informatike, što mi je dalo snažne analitičke temelje za rješavanje složenih programskih problema. Kada ne kodiram, onda sudim košarkaške utakmice, trčim ili planiram sljedeću planinarsku avanturu.
+                Ja sam web developer sa željom kreiranja digitalnih iskustava. Sveučilišni sam prvostupnik informatike i uskoro ću postati Magistar informatike, što mi je dalo analitičke temelje za rješavanje programskih problema. U slobodno vrijeme sudim košarkaške utakmice, trčim ili planiram sljedeću planinarsku avanturu.
             </p>
             <p>
                 Moja ljubav prema planinarenju i trčanju naučila me izdržljivosti i ustrajnosti, dok mi košarkaško suđenje pomaže u brzom donošenju odluka i radu pod pritiskom – vještine koje se prenose na web development.
@@ -677,35 +686,32 @@
 
         <div class="card-grid">
             <div class="card" data-project="trailtracker">
-                <h3>🌲 TrailTracker Pro</h3>
-                <p>Sveobuhvatna aplikacija za planinarstvo izgrađena s Angular-om i Firebase-om. Uključuje integraciju vremenske prognoze u realnom vremenu, GPS praćenje i dijeljenje staza u zajednici.</p>
+                <h3>UHKS</h3>
+                <p>UHKS je  web aplikacija koju sam razvio za digitalizaciju upravljanja košarkaškim sucima i ostalim košarkaškim djelatnicima.</p>
                 <div class="tech-stack">
                     <span class="tech-tag">Angular</span>
                     <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">Firebase</span>
-                    <span class="tech-tag">PWA</span>
+                    <span class="tech-tag">MongoDB</span>
                 </div>
             </div>
 
             <div class="card" data-project="ecommerce">
-                <h3>⚡ EcoCommerce platforma</h3>
-                <p>Održiva e-commerce platforma koja promovira eko-proizvode. Izgrađena s Angular frontendom i Node.js backendom, uključuje praćenje ugljičnog otiska.</p>
+                <h3>WhatToDo</h3>
+                <p>WhatToDo je sveobuhvatna aplikacija za upravljanje zadacima koja omogućuje korisnicima efikasnu organizaciju i praćenje njihovih aktivnosti.</p>
                 <div class="tech-stack">
-                    <span class="tech-tag">Angular</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">MongoDB</span>
-                    <span class="tech-tag">Stripe</span>
+                    <span class="tech-tag">.NET</span>
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">MySQL</span>
                 </div>
             </div>
 
             <div class="card" data-project="weather">
-                <h3>🏔️ Mountain Weather API</h3>
-                <p>RESTful API koji pruža specijalizirane vremenske podatke za alpiniste i planinare. Agregira podatke iz više izvora s prognozama specifičnim za visinu.</p>
+                <h3>BeerShop</h3>
+                <p>BeerShop je specijalizirana online trgovina koja se fokusira na prodaju širokog asortimana piva i srodnih proizvoda.</p>
                 <div class="tech-stack">
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">Express</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Mongo DB</span>
                 </div>
             </div>
         </div>
@@ -805,31 +811,42 @@
         var projects = {
             trailtracker: {
                 title: "UHKS Sistem upravaljanja košarkaškim suđenjem",
-                description: "UKSPGZ je  web aplikacija koju sam razvio za digitalizaciju upravljanja košarkaškim sucima. Aplikacija omogućava potpuno digitalno upravljanje od nominacije sudaca na utakmice do detaljne evaluacije njihovih performansi po različitim kategorijama poput tehnike, timskog rada i kontrole utakmice. Sustav uključuje sveobuhvatan modul za statistike i analizu performansi, upravljanje putnim troškovima s mogućnošću podnošenja i odobravanja zahtjeva za refundaciju, integrirani sustav online ispita za certificiranje sudaca, te planiranje odsustva i dostupnosti. Aplikacija podržava tri glavne korisničke uloge - administratore za potpuno upravljanje sustavom, suce za pristup utakmicama i ispitima, te delegate za evaluaciju performansi. Cijeli sustav je dizajniran s naglaskom na intuitivno korisničko sučelje, responsive dizajn optimiziran za sve uređaje, te uspješno digitalizira složen proces upravljanja košarkaškim suđenjem, značajno poboljšavajući efikasnost i transparentnost rada Unije košarkaških sudaca Primorsko-gorske županije.",
+                description: "UKSPGZ je  web aplikacija za digitalizaciju upravljanja košarkaškim sucima. Aplikacija omogućava  digitalno upravljanje od nominacije sudaca na utakmice do detaljne evaluacije njihovih performansi po kategorijama poput tehnike, timskog rada i kontrole utakmice. Sustav uključuje sveobuhvatan modul za statistike i analizu performansi, upravljanje putnim troškovima, integrirani sustav online ispita, te planiranje odsustva i dostupnosti. Aplikacija podržava tri glavne korisničke uloge - administratore, suce, te delegate za evaluaciju performansi. Cijeli sustav je dizajniran s naglaskom na intuitivno korisničko sučelje, responsive dizajn. Sustav uspješno digitalizira složen proces upravljanja košarkaškim suđenjem. ",
                 images: [
-                    "🗺️ Interaktivna karta s GPS praćenjem",
-                    "🌤️ Vremenska prognoza u realnom vremenu",
-                    "📱 Progressive Web App funkcionalnost",
-                    "👥 Dijeljenje staza s zajednicom",
-                    "📊 Statistike i analiza planinarskih aktivnosti"
+                    {src:"assets/UHKS/1.png"},
+                    {src:"assets/UHKS/2.png"},
+                    {src:"assets/UHKS/3.png"},
+                    {src:"assets/UHKS/4.png"},
+                    {src:"assets/UHKS/5.png"},
+                    {src:"assets/UHKS/6.png"},
+                    {src:"assets/UHKS/7.png"}
                 ],
                 techStack: ["Angular", "TypeScript", "Mongo DB", "Node.js", "Express", "Mongoose", "JWT", "Vercel", "Railway"],
                 github: ""
             },
             ecommerce: {
                 title: "WhatToDo",
-                description: "WhatToDo je sveobuhvatna aplikacija za upravljanje zadacima koja omogućuje korisnicima efikasnu organizaciju i praćenje njihovih aktivnosti. Aplikacija podržava kategorizaciju zadataka u prilagođene kategorije za bolju organizaciju rada.Svaki zadatak prolazi kroz jasno definirane statuse - 'Open' (otvoren), 'In Progress' (u tijeku) i 'Done' (završen), što omogućuje transparentno praćenje napretka. Sustav uključuje funkcionalnost postavljanja rokova za sve zadatke, osiguravajući pravovremeno izvršavanje obaveza. Implemtentirana je Speech to Text funkcionalnost koja korisnicima omogućuje brzo unošenje sadržaja u tekstna polja putem glasovnih naredbi, čime se značajno povećava brzina rada. Za timski rad, WhatToDo nudi mogućnost stvaranja grupnih projekata gdje se zadaci mogu dodjeljivati različitim članovima tima.Aplikacija je dostupna na engleskom i hrvatskom jeziku. WhatToDo predstavlja kompletan alat za produktivnost koji kombinira jednostavnost korištenja s naprednim funkcionalnostima za upravljanje zadacima. Ova aplikacija je izrađena u timu sa kolegom s fakulteta u sklopu kolegija 'Human Computer Interaction'.",
+                description: "WhatToDo je sveobuhvatna aplikacija za upravljanje zadacima koja omogućuje korisnicima efikasnu organizaciju. Aplikacija podržava kategorizaciju zadataka u  kategorije. Svaki zadatak prolazi kroz statuse npr, 'In Progress' i 'Done'. Sustav uključuje funkcionalnosti postavljanja rokova i Speech to Text  koja korisnicima omogućuje unošenje sadržaja putem glasovnih naredbi. WhatToDo nudi mogućnost stvaranja grupnih projekata gdje se zadaci mogu dodjeljivati članovima tima.Aplikacija je dostupna na engleskom i hrvatskom jeziku. WhatToDo predstavlja kompletan alat za produktivnost. Ova aplikacija je izrađena u timu sa kolegom s fakulteta u sklopu kolegija 'Human Computer Interaction'.",
                 images: [
-                    {src:""},
+                    {src:"assets/WhatToDo/1.png"},
+                    {src:"assets/WhatToDo/2.png"},
+                    {src:"assets/WhatToDo/3.png"},
+                    {src:"assets/WhatToDo/4.png"},
+                    {src:"assets/WhatToDo/5.png"},
+                    {src:"assets/WhatToDo/6.png"}
                 ],
                 techStack: [".NET", "MySQL", "C#"],
                 github: ""
             },
             weather: {
                 title: "BeerShop",
-                description: "",
+                description: "Aplikacija implementira standardne e-commerce funkcionalnosti poput košarice, procesa naručivanja, upravljanja korisničkim računima i praćenja narudžbi. Sustav uključuje i osnovne sigurnosne mjere kao što je verifikacija dobi korisnika u skladu s propisima o prodaji alkohola.",
                 images: [
-                    {src:"https://drive.google.com/file/d/1wMGPvqtyhNXAczvRfCA_rpQ06bgR3lcs/view?usp=drive_link"},
+                    {src:"assets/BeerShop/1.png"},
+                    {src:"assets/BeerShop/2.png"},
+                    {src:"assets/BeerShop/3.png"},
+                    {src:"assets/BeerShop/4.png"}
+
                 ],
                 techStack: ["Next.js", "TypeScript", "Mongo DB", "JWT"],
                 github: ""
@@ -887,32 +904,74 @@
 
         // Setup carousel
         function setupCarousel(images) {
-            totalSlides = images.length;
-            currentSlide = 0;
+    console.log('Setting up carousel with images:', images); // Debug log
+    totalSlides = images.length;
+    currentSlide = 0;
 
-            // Clear existing content
-            carouselTrack.innerHTML = '';
-            carouselIndicators.innerHTML = '';
+    // Clear existing content
+    carouselTrack.innerHTML = '';
+    carouselIndicators.innerHTML = '';
 
-            // Create slides
-            images.forEach(function(image, index) {
-                var slide = document.createElement('div');
-                slide.className = 'carousel-slide';
-                slide.textContent = image;
-                carouselTrack.appendChild(slide);
+    // Create slides
+    images.forEach(function(imageData, index) {
+        console.log('Processing image:', imageData); // Debug log
+        
+        var slide = document.createElement('div');
+        slide.className = 'carousel-slide';
+        
+        // Create image element
+        var img = document.createElement('img');
+        img.src = imageData.src;
+        img.alt = imageData.caption;
+        img.loading = 'lazy';
+        
+        console.log('Image src set to:', img.src); // Debug log
+        
+        // Create caption element
+        var caption = document.createElement('div');
+        caption.className = 'slide-caption';
+        caption.textContent = imageData.caption;
+        
+        // Add success handler for images
+        img.onload = function() {
+            console.log('Successfully loaded image:', imageData.src);
+        };
+        
+        // Add error handling for images
+        img.onerror = function() {
+            console.error('Failed to load image:', imageData.src);
+            // Fallback to text display if image fails to load
+            slide.innerHTML = '';
+            var fallbackDiv = document.createElement('div');
+            fallbackDiv.textContent = imageData.caption;
+            fallbackDiv.style.fontSize = '1.2rem';
+            fallbackDiv.style.textAlign = 'center';
+            fallbackDiv.style.color = 'var(--snow-white)';
+            fallbackDiv.style.padding = '2rem';
+            fallbackDiv.style.display = 'flex';
+            fallbackDiv.style.alignItems = 'center';
+            fallbackDiv.style.justifyContent = 'center';
+            fallbackDiv.style.height = '100%';
+            slide.appendChild(fallbackDiv);
+        };
+        
+        slide.appendChild(img);
+        slide.appendChild(caption);
+        carouselTrack.appendChild(slide);
 
-                // Create indicator
-                var indicator = document.createElement('div');
-                indicator.className = 'carousel-indicator';
-                if (index === 0) indicator.classList.add('active');
-                indicator.addEventListener('click', function() { 
-                    goToSlide(index); 
-                });
-                carouselIndicators.appendChild(indicator);
-            });
+        // Create indicator
+        var indicator = document.createElement('div');
+        indicator.className = 'carousel-indicator';
+        if (index === 0) indicator.classList.add('active');
+        indicator.addEventListener('click', function() { 
+            goToSlide(index); 
+        });
+        carouselIndicators.appendChild(indicator);
+    });
 
-            updateCarousel();
-        }
+    updateCarousel();
+    console.log('Carousel setup complete. Total slides:', totalSlides);
+}
 
         // Update carousel position
         function updateCarousel() {
